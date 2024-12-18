@@ -1,3 +1,15 @@
+import classes from './page.module.css'
+import WatchGrid from '@/components/watch-grid'
+
 export default function WatchPage() {
-    return <h1>Watch Page</h1>
+    return(
+        <>
+            <header>
+                
+            </header>
+            <main>
+                <WatchGrid watches={[]}/>
+            </main>
+        </>
+    )
 }
