@@ -6,7 +6,6 @@ import classes from './main-header.module.css'
 import NavLink from '../components/nav-link'
 
 export default function MainHeader() {
-
     return <header className={classes.header}>
         <Link className={classes.logo} href="/">
             <Image src={logoImg} alt="food_image"/>

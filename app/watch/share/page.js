@@ -1,6 +1,14 @@
+'use client'
+
+import ImagePicker from '@/components/image-picker';
 import classes from './page.module.css';
+import { shareMeal } from '@/action';
+import WatchFormSubmit from '@/components/watch-formsubmit';
+import { useFormState } from 'react-dom';
 
 export default function ShareMealPage() {
+  const [state, formAction] = useFormState(shareMeal, {message: null})
+
   return (
     <>
       <header className={classes.header}>
@@ -9,7 +17,7 @@ export default function ShareMealPage() {
         </h1>
       </header>
       <main className={classes.main}>
-        <form className={classes.form}>
+        <form className={classes.form} action={formAction}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -29,17 +37,20 @@ export default function ShareMealPage() {
             <input type="text" id="summary" name="summary" required />
           </p>
           <p>
-            <label htmlFor="instructions">Post Content</label>
+            <label htmlFor="post">Post Content</label>
             <textarea
-              id="instructions"
-              name="instructions"
+              id="post"
+              name="post"
               rows="10"
               required
             ></textarea>
           </p>
-          IMAGE PICKER
+          <ImagePicker label="your image" name="image"/>
+          {
+            state.message && <p>{state.message}</p>
+          }
           <p className={classes.actions}>
-            <button type="submit">Start Watch</button>
+            <WatchFormSubmit/>
           </p>
         </form>
       </main>
