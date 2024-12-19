@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import classes from './watch-item.module.css';
 
-export default function WatchItem({ title, slug, image, summary, creator }) {
+export default function WatchItem({ title, slug, image, summary, user }) {
   return (
     <article className={classes.meal}>
       <header>
@@ -12,7 +12,7 @@ export default function WatchItem({ title, slug, image, summary, creator }) {
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>
-          <p>by {creator}</p>
+          <p>by {user}</p>
         </div>
       </header>
       <div className={classes.content}>
